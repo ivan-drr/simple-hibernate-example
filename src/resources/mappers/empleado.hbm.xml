@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="aytos.es.ejerciciohibernate.modelo.Empleado" table="EMP">
+		<id name="id" type="int">
+			<column name="EMP_ID" />
+			<generator class="assigned"/>
+		</id>
+		<property name="nombre" type="java.lang.String">
+			<column name="EMP_NOM"/>
+		</property>
+		<many-to-one name="departamento" class="aytos.es.ejerciciohibernate.modelo.Departamento" fetch="select">
+			<column name="EMP_IDDEP" not-null="true" />
+        </many-to-one>
+	</class>
+</hibernate-mapping>
